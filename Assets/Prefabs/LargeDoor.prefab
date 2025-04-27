@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f4945f5a583ea439d090d95153616a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playercontroller: {fileID: 0}
+  playercontroller: {fileID: 5680633247250366388, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
   MediumDoor: {fileID: 5611177144269915644}
   SmallDoor: {fileID: 7419036948697313371}
   doorEnabled: 1

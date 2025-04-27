@@ -344,10 +344,14 @@ namespace TarodevController
                 yield return null;
             }
 
+            // After the interpolation finishes, hard-set the scale exactly:
+            transform.localScale = new Vector3(targetScale, targetScale, 1f);
+
             yield return new WaitForFixedUpdate(); // Wait for physics step
 
             RecheckGrounding();
         }
+
 
 
 

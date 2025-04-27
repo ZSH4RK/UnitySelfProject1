@@ -4,42 +4,79 @@ using UnityEngine;
 
 public class Grate : MonoBehaviour
 {
-    private void Update()
+    private Collider2D grateCollider;
+    private PlayerController playerController;
+
+    private void Start()
     {
-        
-    }
+        grateCollider = GetComponent<Collider2D>();
 
-
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        PlayerController player = other.GetComponent<PlayerController>();
-    //        if (player != null && player._currentSizeIndex == 0)
-    //        {
-    //            Debug.Log("Small player entered grate - disabling collider on " + gameObject.name);
-    //            GetComponent<Collider2D>().enabled = false;
-    //        }
-    //    }
-    //}
-
-        private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.name == "Player Controller")
+        // If the Grate object has no collider, warn the developer
+        if (grateCollider == null)
         {
-            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
-            playerController.CheckSize();
+            Debug.LogError("No Collider found on Grate!");
         }
     }
 
-    //private void OnTriggerExit2D(Collider2D other)
-    //{
-    //    GetComponent<Collider2D>().enabled = true;
-    //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerController = other.GetComponent<PlayerController>();
+            if (playerController != null && IsSize(0))
+            {
+                DisableCollider();
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            EnableCollider();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerController = other.gameObject.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.CheckSize();
+            }
+        }
+    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        GetComponent<Collider2D>().enabled = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            EnableCollider();
+        }
     }
 
+    private bool IsSize(int size)
+    {
+        return playerController._currentSizeIndex == size;
+    }
+
+    private void DisableCollider()
+    {
+        if (grateCollider != null)
+        {
+            Debug.Log("Small player entered grate - disabling collider on " + gameObject.name);
+            grateCollider.enabled = false;
+        }
+    }
+
+    private void EnableCollider()
+    {
+        if (grateCollider != null)
+        {
+            grateCollider.enabled = true;
+        }
+    }
 }
