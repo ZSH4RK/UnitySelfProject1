@@ -591,8 +591,6 @@ MonoBehaviour:
     prefab: {fileID: 4502242847871438303, guid: e05149036b771044f83e05e298cb17eb, type: 3}
   - color: {r: 1, g: 0.39215687, b: 0, a: 1}
     prefab: {fileID: 2907559271314664739, guid: a4610699dfd5a4944a145b8d51825bdb, type: 3}
-  - color: {r: 0, g: 0, b: 1, a: 1}
-    prefab: {fileID: 5953672045561057614, guid: c534aa6c5c8aea947afa02bf2a90e0d4, type: 3}
   - color: {r: 1, g: 0, b: 1, a: 1}
     prefab: {fileID: 740669496194176339, guid: 0bcc741cc4aaad14c96edd27983b648b, type: 3}
 --- !u!4 &1539374386
@@ -869,6 +867,10 @@ PrefabInstance:
     - target: {fileID: 8629726499857734076, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_Name
       value: Player Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629726499857734076, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

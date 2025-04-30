@@ -22,7 +22,6 @@ namespace TarodevController
         private Rigidbody2D _rb;
         private CapsuleCollider2D _col;
         private Transform Player;
-        public Grate grate;
         private FrameInput _frameInput;
         public Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
@@ -292,26 +291,8 @@ namespace TarodevController
             _resizeCoroutine = StartCoroutine(SmoothResize(newScale));
             Debug.Log(_col.bounds.size);
 
-            
+
         }
-
-        public bool CheckSize()
-        {
-            if (_currentSizeIndex == 0)
-            {
-                grate.GetComponent<Collider2D>().enabled = false; // Disables the collider
-                return false; // Return true after disabling the collider
-            }
-            else
-            {
-                grate.GetComponent<Collider2D>().enabled = true; // Enables the collider
-                return true; // Return true after enabling the collider (you can modify this to return a different value if needed)
-            }
-        }
-
-
-
-
 
 
 
