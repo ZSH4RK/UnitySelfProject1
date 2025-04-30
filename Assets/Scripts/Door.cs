@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindAnyObjectByType<PlayerController>();
 
         if (playerController == null)
         {

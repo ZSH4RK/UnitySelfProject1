@@ -11,7 +11,7 @@ public class Chest : MonoBehaviour
     public GameObject ChestUI;
 
 
-    
+     
     void Update()
     {
         OpenChest();

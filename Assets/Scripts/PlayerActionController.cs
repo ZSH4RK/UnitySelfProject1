@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TarodevController;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerActionController : MonoBehaviour
 {
@@ -53,14 +54,9 @@ public class PlayerActionController : MonoBehaviour
             {
                 Debug.Log("Can Burrow");
 
-                float platformHeight = platform.transform.localScale.y;
-                Vector3 pos = playerController.transform.position;
-                float platformTop = platform.transform.position.y + (platformHeight / 2f);
-                float playerHeight = playerController.transform.localScale.y;
-                pos.y = platformTop - platformHeight - playerHeight;
-                playerController.transform.position = pos;
+                SceneManager.CreateScene("BurrowingTestScene");
 
-                break; // Stop after first valid burrowable platform
+                
             }
         }
     }
